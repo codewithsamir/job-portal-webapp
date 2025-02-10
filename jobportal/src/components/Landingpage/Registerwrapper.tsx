@@ -11,7 +11,7 @@ const Loginwrapper = () => {
   const isactive = useSelector((state: any) => state.registeractive);
   
 //   console.log(isloginactive);
-  return <div className="">
+  return <div >
     {isactive.isActivelogin && <Login /> } 
     {isactive.isActiveforgotpassword && <Forgotpassword />}
     {isactive.isActivecategori &&  <Categorysignup />}
