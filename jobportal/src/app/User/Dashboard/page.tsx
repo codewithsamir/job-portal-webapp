@@ -1,12 +1,10 @@
-import Confirmemail from '@/components/dashboard/confirmemail'
-import Header from '@/components/dashboard/header'
-import Sidebar from '@/components/dashboard/sidebar'
+import Dashboardpage from '@/components/dashboard/dasboardpage'
 import React from 'react'
 
 const page = () => {
   return (
-    <div className='w-full min-h-screen bg-[#2E2835] p-6 rounded-xl text-white'>
-       
+    <div className='w-full min-h-screen  bg-[#2E2835] p-6 rounded-xl text-white'>
+       <Dashboardpage />
 
     </div>
   )

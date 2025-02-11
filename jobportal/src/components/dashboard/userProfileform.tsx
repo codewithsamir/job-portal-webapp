@@ -50,6 +50,9 @@ const formSchema = z.object({
     nationality: z.string().min(2, {
       message: "Nationality must be at least 2 characters long.",
     }),
+    email: z.string().min(2, {
+      message: "email must be valid.",
+    }),
     image: z
       .instanceof(File, {
         message: "An image file is required.",
@@ -81,6 +84,7 @@ const UserProfileform = () => {
         experience: "",
         nationality: "",
         image: undefined,
+        email:""
     },
   })
 
@@ -96,8 +100,9 @@ const UserProfileform = () => {
 
   return (
    
-    <Form {...form}>
-    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+   <div className="p-4 bg-[#af8dff48] w-[70%] m-auto rounded-lg ">
+     <Form {...form}>
+    <form onSubmit={form.handleSubmit(onSubmit)} className=" grid grid-cols-2 items-center gap-5">
       <FormField
         control={form.control}
         name="firstname"
@@ -115,6 +120,20 @@ const UserProfileform = () => {
       <FormField
         control={form.control}
         name="lastname"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel className="text-white">Last Name</FormLabel>
+            <FormControl>
+              <Input placeholder="Enter your last name" {...field} className='text-white' />
+            </FormControl>
+          
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="email"
         render={({ field }) => (
           <FormItem>
             <FormLabel className="text-white">Last Name</FormLabel>
@@ -205,28 +224,34 @@ const UserProfileform = () => {
           </FormItem>
         )}
       />
-   <Popover >
-      <PopoverTrigger asChild>
-        <Button
-          variant={"outline"}
-          className={cn(
-            "w-full justify-start text-left font-normal ",
-            !dob && "text-muted-foreground"
-          )}
-        >
-          <CalendarIcon />
-          {dob ? format(dob, "PPP") : <span>Date of Birth</span>}
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-full p-0" align="start">
-        <Calendar
-          mode="single"
-          selected={dob}
-          onSelect={setdob}
-          initialFocus
-        />
-      </PopoverContent>
-    </Popover>
+      <div>
+      <Label htmlFor="picture" className='text-white mb-3 block'>Date of birth</Label>
+      <Popover >
+  
+  <PopoverTrigger asChild>
+    <Button
+      variant={"outline"}
+      className={cn(
+        "w-full justify-start text-left font-normal ",
+        !dob && "text-muted-foreground"
+      )}
+    >
+       
+      <CalendarIcon />
+      {dob ? format(dob, "PPP") : <span>Date of Birth</span>}
+    </Button>
+  </PopoverTrigger>
+  <PopoverContent className="w-full p-0" align="start">
+    <Calendar
+      mode="single"
+      selected={dob}
+      onSelect={setdob}
+      initialFocus
+    />
+  </PopoverContent>
+</Popover>
+      </div>
+
 
             <FormField
         control={form.control}
@@ -268,6 +293,7 @@ const UserProfileform = () => {
       <Button type="submit" className='w-full text-xl'>Submit</Button>
     </form>
   </Form>
+   </div>
   )
 }
 

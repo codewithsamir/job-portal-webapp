@@ -5,7 +5,7 @@ const page = ({params}:any) => {
     const title =decodeURIComponent(params.jobid)
   return (
     <div>
-        <Jobdescription data={title} />
+        <Jobdescription data={title}  />
     </div>
   )
 }

@@ -9,7 +9,7 @@ import {
 import Image from "next/image"
 import { Button } from "../ui/button"
 
-const Jobcard = ({data}:any) => {
+const Jobcard = ({data,className}:any) => {
 console.log(data)
 
 

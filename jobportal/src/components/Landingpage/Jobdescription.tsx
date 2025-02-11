@@ -12,7 +12,7 @@ import {
 import { Button } from '../ui/button';
   
 
-const Jobdescription = ({data}:any) => {
+const Jobdescription = ({data,classNames}:any) => {
 
     const jobDescription = {
         jobCategory: "IT & Telecommunication",
@@ -62,7 +62,7 @@ const Jobdescription = ({data}:any) => {
     
   
   return (
-   <div className="jobdescription p-10">
+   <div className={`jobdescription p-10 ${classNames} `}>
     <div className="image w-full h-[300px]">
         <Image src={"/demo.jpg"} alt='job decription' width={100} height={300} className='w-full h-full object-cover object-center' />
     </div>
@@ -78,7 +78,7 @@ const Jobdescription = ({data}:any) => {
   {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
   <TableHeader>
     <TableRow>
-      <TableHead className='text-3xl p-2'>Basic job Description</TableHead>
+      <TableHead className='text-3xl p-2 '>Basic job Description</TableHead>
       {/* <TableHead>Status</TableHead>
       <TableHead>Method</TableHead>
       <TableHead className="text-right">Amount</TableHead> */}
